@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const RebrandSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-8 py-24">
+    <section className="relative min-h-screen flex items-center justify-center pl-8 pr-0 py-24 overflow-hidden">
       {/* Gradient Background - darker blue-purple to lighter blue-purple */}
       <div 
         className="absolute inset-0"
@@ -32,8 +33,8 @@ const RebrandSection: React.FC = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto w-full pl-8 pr-0">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative">
           {/* Left Section - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -79,7 +80,7 @@ const RebrandSection: React.FC = () => {
                 lineHeight: '1.6'
               }}
             >
-              Our story is about this journey helping deserving companies connect with their customers in a meaning way - all by combining the science of marketing+ the magic od design
+              Our story is about this journey helping deserving companies connect with their customers in a meaningful way - all by combining the science of marketing + the magic of design
             </p>
 
             {/* CTA Button */}
@@ -100,133 +101,35 @@ const RebrandSection: React.FC = () => {
             </motion.button>
           </motion.div>
 
-          {/* Right Section - Abstract Graphic */}
+          {/* Right Section - Hunnid Half Background SVG */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[600px] lg:h-[700px] flex items-center justify-center"
+            className="relative h-[600px] lg:h-[700px] flex items-center"
           >
-            {/* Abstract W-shaped Graphic */}
-            <div className="relative w-full h-full">
-              {/* Main W/Arch Shapes */}
-              <svg 
-                className="w-full h-full" 
-                viewBox="0 0 600 700" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                {/* Large overlapping rounded shapes creating W/arch pattern */}
-                
-                {/* Left Arch */}
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.6 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.5 }}
-                  d="M 100 200 Q 150 100 200 200 Q 250 300 300 200"
-                  stroke="rgba(139, 92, 246, 0.5)"
-                  strokeWidth="8"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                
-                {/* Center Arch */}
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.6 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.7 }}
-                  d="M 200 200 Q 300 50 400 200 Q 450 300 500 200"
-                  stroke="rgba(139, 92, 246, 0.5)"
-                  strokeWidth="8"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-
-                {/* Overlapping rounded shapes */}
-                <motion.ellipse
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 0.4 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.9 }}
-                  cx="200"
-                  cy="300"
-                  rx="120"
-                  ry="150"
-                  fill="rgba(139, 92, 246, 0.3)"
-                />
-
-                <motion.ellipse
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 0.4 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 1.1 }}
-                  cx="400"
-                  cy="300"
-                  rx="120"
-                  ry="150"
-                  fill="rgba(139, 92, 246, 0.3)"
-                />
-
-                <motion.ellipse
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 0.35 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 1.3 }}
-                  cx="300"
-                  cy="400"
-                  rx="140"
-                  ry="180"
-                  fill="rgba(139, 92, 246, 0.25)"
-                />
-
-                {/* Additional connecting shapes */}
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.4 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, delay: 1.5 }}
-                  d="M 150 350 Q 300 250 450 350"
-                  stroke="rgba(139, 92, 246, 0.4)"
-                  strokeWidth="6"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-
-                {/* Smaller accent shapes */}
-                <motion.circle
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 0.5 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 1.7 }}
-                  cx="180"
-                  cy="250"
-                  r="40"
-                  fill="rgba(139, 92, 246, 0.3)"
-                />
-
-                <motion.circle
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 0.5 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 1.9 }}
-                  cx="420"
-                  cy="250"
-                  r="40"
-                  fill="rgba(139, 92, 246, 0.3)"
-                />
-              </svg>
-
-              {/* Additional blur/glow effects */}
-              <div 
-                className="absolute inset-0"
+            {/* Image container positioned to touch right edge of viewport */}
+            <div 
+              className="absolute top-0 bottom-0 right-0"
+              style={{
+                right: 0,
+                width: '50vw',
+                marginRight: 0,
+                paddingRight: 0
+              }}
+            >
+              <Image
+                src="/components/hunnid-half-bg.svg"
+                alt="Hunnid Labs Background"
+                fill
+                className="object-contain object-right"
                 style={{
-                  background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.2) 0%, transparent 70%)',
-                  filter: 'blur(40px)'
+                  right: 0,
+                  marginRight: 0,
+                  paddingRight: 0
                 }}
+                priority
               />
             </div>
           </motion.div>

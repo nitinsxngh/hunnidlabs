@@ -95,91 +95,275 @@ const WebAppSection: React.FC = () => {
               Web Application Development: Engineered for Performance
             </h2>
 
-            {/* Phone with Holographic Icons */}
-            <div className="relative w-full h-[500px] flex items-center justify-center">
-              {/* Wooden surface effect */}
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-amber-900/20 to-transparent"></div>
+            {/* Animated Web Application Visualization */}
+            <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+              {/* Animated code background */}
+              <div className="absolute inset-0 opacity-10">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="code-pattern" x="0" y="0" width="100" height="30" patternUnits="userSpaceOnUse">
+                      <text x="0" y="20" fill="rgba(59, 130, 246, 0.3)" fontSize="12" fontFamily="monospace">
+                        {'<div>'}
+                      </text>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#code-pattern)" />
+                </svg>
+              </div>
 
-              {/* Phone */}
+              {/* Central Device/Phone */}
               <div className="relative z-20">
-                {/* Phone body */}
-                <div 
+                {/* Phone body with realistic design */}
+                <motion.div 
                   className="relative w-64 h-[500px] rounded-[3rem] mx-auto"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
                   style={{
                     background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
                     border: '8px solid #2a2a2a',
                     boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(59, 130, 246, 0.1)'
                   }}
                 >
-                  {/* Phone screen with blue light */}
+                  {/* Phone screen with animated web app interface */}
                   <div 
                     className="absolute inset-4 rounded-[2.5rem] overflow-hidden"
                     style={{
-                      background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(37, 99, 235, 0.2) 100%)',
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.6), inset 0 0 60px rgba(59, 130, 246, 0.4)'
+                      background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%)',
+                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.6), inset 0 0 60px rgba(59, 130, 246, 0.2)'
                     }}
                   >
-                    {/* Screen content */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-6xl text-blue-400">📱</div>
+                    {/* Web App Interface */}
+                    <div className="absolute inset-0 p-4">
+                      {/* Status bar */}
+                      <div className="flex justify-between items-center mb-3">
+                        <div className="text-white text-xs font-semibold">9:41</div>
+                        <div className="flex gap-1">
+                          {[1, 2, 3, 4].map((i) => (
+                            <div key={i} className="w-1 h-1 bg-white rounded-full"></div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* App header */}
+                      <motion.div 
+                        className="h-12 bg-gradient-to-r from-blue-600/30 to-purple-600/30 rounded-lg mb-3 flex items-center px-4"
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                      >
+                        <div className="w-8 h-8 bg-blue-500/50 rounded-lg mr-3"></div>
+                        <div className="flex-1">
+                          <div className="h-2 bg-white/40 rounded w-20 mb-1"></div>
+                          <div className="h-1.5 bg-white/20 rounded w-16"></div>
+                        </div>
+                      </motion.div>
+
+                      {/* Content cards */}
+                      {[0, 1, 2].map((i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+                          className="h-20 bg-white/5 rounded-lg mb-2 p-3 border border-white/10"
+                        >
+                          <div className="flex items-center mb-2">
+                            <div className="w-10 h-10 bg-blue-500/30 rounded-lg mr-3"></div>
+                            <div className="flex-1">
+                              <div className="h-2 bg-white/30 rounded w-24 mb-1"></div>
+                              <div className="h-1.5 bg-white/20 rounded w-16"></div>
+                            </div>
+                          </div>
+                          <div className="h-1.5 bg-white/10 rounded w-full"></div>
+                        </motion.div>
+                      ))}
+
+                      {/* Performance indicator */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 1 }}
+                        className="absolute bottom-4 left-4 right-4"
+                      >
+                        <div className="bg-green-500/20 rounded-lg p-2 border border-green-500/30">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-green-400 text-xs font-semibold">Performance</span>
+                            <span className="text-white text-xs">98%</span>
+                          </div>
+                          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              whileInView={{ width: '98%' }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 1, delay: 1.2 }}
+                              className="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full"
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
                     </div>
                   </div>
 
                   {/* Notch */}
                   <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-full"></div>
-                </div>
+                </motion.div>
 
                 {/* Blue glow on surface */}
-                <div 
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-20 blur-2xl"
+                <motion.div 
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-20 blur-2xl z-10"
+                  animate={{
+                    opacity: [0.4, 0.6, 0.4],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
                   style={{
                     background: 'radial-gradient(ellipse, rgba(59, 130, 246, 0.4) 0%, transparent 70%)'
                   }}
                 />
               </div>
 
-              {/* Floating Holographic Icons */}
-              {appIcons.map((icon, index) => {
-                const angle = (index * 360) / appIcons.length;
-                const radius = 120 + (index % 3) * 40;
+              {/* Floating Code Snippets */}
+              {[
+                { code: 'React', color: 'rgba(97, 218, 251, 0.8)', delay: 0 },
+                { code: 'Node.js', color: 'rgba(34, 197, 94, 0.8)', delay: 0.3 },
+                { code: 'TypeScript', color: 'rgba(59, 130, 246, 0.8)', delay: 0.6 },
+                { code: 'Next.js', color: 'rgba(0, 0, 0, 0.8)', delay: 0.9 }
+              ].map((item, index) => {
+                const angle = (index * 90) + 45;
+                const radius = 140;
                 const x = Math.cos((angle * Math.PI) / 180) * radius;
-                const y = Math.sin((angle * Math.PI) / 180) * radius - 50;
+                const y = Math.sin((angle * Math.PI) / 180) * radius;
                 
                 return (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, y: y, scale: 1 }}
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    whileInView={{ opacity: 1, scale: 1, x: x, y: y }}
                     viewport={{ once: true }}
                     animate={{
-                      y: [y, y - 20, y],
-                      opacity: [0.8, 1, 0.8]
+                      y: [y, y - 15, y],
+                      opacity: [0.7, 1, 0.7],
+                      scale: [1, 1.05, 1]
                     }}
                     transition={{
-                      duration: 2 + (index * 0.2),
+                      duration: 2.5,
                       repeat: Infinity,
-                      delay: index * 0.1,
+                      delay: item.delay,
                       ease: "easeInOut"
                     }}
                     className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
                     style={{
-                      x: x,
-                      filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.8))'
+                      filter: `drop-shadow(0 0 15px ${item.color})`
                     }}
                   >
                     <div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl backdrop-blur-sm"
+                      className="px-4 py-2 rounded-lg backdrop-blur-sm border"
                       style={{
-                        background: 'rgba(59, 130, 246, 0.2)',
-                        border: '1px solid rgba(59, 130, 246, 0.5)',
-                        boxShadow: '0 0 20px rgba(59, 130, 246, 0.4)'
+                        background: `${item.color.replace('0.8', '0.15')}`,
+                        borderColor: item.color,
+                        boxShadow: `0 0 25px ${item.color.replace('0.8', '0.4')}`
                       }}
                     >
-                      {icon}
+                      <code 
+                        className="text-white text-sm font-mono font-semibold"
+                        style={{ color: item.color === 'rgba(0, 0, 0, 0.8)' ? 'white' : item.color }}
+                      >
+                        {item.code}
+                      </code>
                     </div>
                   </motion.div>
                 );
               })}
+
+              {/* Performance Metrics - Floating */}
+              {[
+                { label: 'Speed', value: '99%', delay: 0.2 },
+                { label: 'SEO', value: '100%', delay: 0.5 },
+                { label: 'Security', value: '98%', delay: 0.8 }
+              ].map((metric, index) => {
+                const positions = [
+                  { x: -180, y: -80 },
+                  { x: 180, y: -80 },
+                  { x: 0, y: 200 }
+                ];
+                const pos = positions[index];
+                
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    animate={{
+                      y: [pos.y, pos.y - 10, pos.y],
+                      opacity: [0.8, 1, 0.8]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: metric.delay,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+                    style={{
+                      x: pos.x,
+                      y: pos.y
+                    }}
+                  >
+                    <div 
+                      className="px-3 py-2 rounded-lg backdrop-blur-sm"
+                      style={{
+                        background: 'rgba(59, 130, 246, 0.15)',
+                        border: '1px solid rgba(59, 130, 246, 0.4)',
+                        boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)'
+                      }}
+                    >
+                      <div className="text-blue-400 text-xs font-semibold mb-0.5">{metric.label}</div>
+                      <div className="text-white text-lg font-bold">{metric.value}</div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+
+              {/* Connection lines */}
+              <svg 
+                className="absolute inset-0 w-full h-full z-10 pointer-events-none" 
+                viewBox="0 0 500 500"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                {[0, 1, 2, 3].map((i) => {
+                  const angle = (i * 90) + 45;
+                  const radius = 140;
+                  const x = 250 + Math.cos((angle * Math.PI) / 180) * radius;
+                  const y = 250 + Math.sin((angle * Math.PI) / 180) * radius;
+                  
+                  return (
+                    <motion.line
+                      key={i}
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 0.2 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
+                      x1="250"
+                      y1="250"
+                      x2={x}
+                      y2={y}
+                      stroke="rgba(59, 130, 246, 0.3)"
+                      strokeWidth="1"
+                      strokeDasharray="5,5"
+                    />
+                  );
+                })}
+              </svg>
             </div>
           </motion.div>
 

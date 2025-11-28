@@ -57,8 +57,8 @@ const HeroSection: React.FC = () => {
       {/* SVG Elements - only for hero section */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Left side elements */}
-        <div className="absolute left-16 top-32">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="absolute left-4 top-24 md:left-16 md:top-32">
+          <div className="grid grid-cols-2 gap-2 md:gap-4">
             <div className="w-6 h-6 bg-white/10 rounded flex items-center justify-center">
               <Image
                 src="/element-1.svg"
@@ -99,17 +99,17 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto w-full text-center relative z-10" style={{ marginTop: '-10%' }}>
+      <div className="max-w-6xl mx-auto w-full text-center relative z-10 px-4" style={{ marginTop: 'clamp(-5%, -10%, 0%)' }}>
         {/* Tagline */}
-        <div className="mb-6">
+        <div className="mb-4 md:mb-6">
           {/* Top horizontal line */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#44A7F6] to-transparent"></div>
           
           <span 
-            className="font-bold tracking-wider"
+            className="font-bold tracking-wider block"
             style={{
               fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif',
-              fontSize: '48px',
+              fontSize: 'clamp(24px, 6vw, 48px)',
               lineHeight: '1.2',
               background: 'linear-gradient(to bottom, #44A7F6 22%, #FFFFFF 100%)',
               WebkitBackgroundClip: 'text',
@@ -127,10 +127,10 @@ const HeroSection: React.FC = () => {
 
         {/* Main Headline */}
         <h1 
-          className="leading-tight mb-8"
+          className="leading-tight mb-4 md:mb-8 px-2"
           style={{
             fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif',
-            fontSize: '40px',
+            fontSize: 'clamp(28px, 5vw, 40px)',
             fontWeight: 'normal',
             color: '#ffffff',
             lineHeight: '1.2'
@@ -141,10 +141,10 @@ const HeroSection: React.FC = () => {
 
         {/* Description */}
         <p 
-          className="leading-relaxed mb-12 max-w-3xl mx-auto"
+          className="leading-relaxed mb-8 md:mb-12 max-w-3xl mx-auto px-2"
           style={{
             fontFamily: 'Poppins, sans-serif',
-            fontSize: '22px',
+            fontSize: 'clamp(16px, 3vw, 22px)',
             fontWeight: '200',
             color: 'rgba(255, 255, 255, 0.9)',
             lineHeight: '1.4'
@@ -155,8 +155,8 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* CTA Button - positioned at bottom center */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10">
-        <button className="bg-black/40 backdrop-blur-sm border border-white/20 text-white px-8 py-3 rounded-full text-base font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/30">
+      <div className="absolute bottom-8 md:bottom-20 left-1/2 transform -translate-x-1/2 z-10">
+        <button className="bg-black/40 backdrop-blur-sm border border-white/20 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/30">
           Build with us
         </button>
       </div>

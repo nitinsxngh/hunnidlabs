@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   keywords: "AI, Web Development, Design, Digital, Software Development",
   authors: [{ name: "Hunnidlabs" }],
   viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

@@ -45,8 +45,8 @@ const ExpertiseHeroSection: React.FC = () => {
 
       {/* SVG Elements - top left icons */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-16 top-32">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="absolute left-4 top-24 md:left-16 md:top-32">
+          <div className="grid grid-cols-2 gap-2 md:gap-4">
             <div className="w-6 h-6 bg-white/10 rounded flex items-center justify-center">
               <Image
                 src="/element-1.svg"
@@ -88,19 +88,19 @@ const ExpertiseHeroSection: React.FC = () => {
       </div>
 
       {/* Two horizontal lines at top */}
-      <div className="absolute top-24 left-0 right-0 z-10">
+      <div className="absolute top-16 md:top-24 left-0 right-0 z-10">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-2"></div>
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto w-full text-center relative z-10" style={{ marginTop: '-10%' }}>
+      <div className="max-w-6xl mx-auto w-full text-center relative z-10 px-4" style={{ marginTop: 'clamp(-5%, -10%, 0%)' }}>
         {/* Main Title: Discover | Develop | Deploy */}
         <h1 
-          className="leading-tight mb-6"
+          className="leading-tight mb-6 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4"
           style={{
             fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif',
-            fontSize: 'clamp(48px, 8vw, 80px)',
+            fontSize: 'clamp(32px, 6vw, 80px)',
             fontWeight: '700',
             lineHeight: '1.2',
             letterSpacing: '-0.02em'
@@ -114,7 +114,7 @@ const ExpertiseHeroSection: React.FC = () => {
           >
             Discover
           </span>
-          <span className="text-white mx-4">|</span>
+          <span className="text-white hidden md:inline mx-2 md:mx-4">|</span>
           <span 
             style={{
               color: '#a855f7', // Brighter purple
@@ -123,7 +123,7 @@ const ExpertiseHeroSection: React.FC = () => {
           >
             Develop
           </span>
-          <span className="text-white mx-4">|</span>
+          <span className="text-white hidden md:inline mx-2 md:mx-4">|</span>
           <span 
             style={{
               color: '#ec4899', // Vibrant pink-purple
@@ -168,21 +168,21 @@ const ExpertiseHeroSection: React.FC = () => {
       {/* Bottom Services Bar */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <div 
-          className="w-full rounded-t-3xl px-8 py-6 backdrop-blur-sm"
+          className="w-full rounded-t-3xl px-4 md:px-8 py-4 md:py-6 backdrop-blur-sm"
           style={{
             background: 'rgba(0, 0, 0, 0.6)',
             borderTop: '1px solid rgba(139, 92, 246, 0.3)',
             boxShadow: '0 -4px 20px rgba(139, 92, 246, 0.2)'
           }}
         >
-          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-8">
+          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-3 md:gap-6 lg:gap-8">
             {services.map((service, index) => (
               <span
                 key={index}
                 className="text-white"
                 style={{
                   fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif',
-                  fontSize: '16px',
+                  fontSize: 'clamp(12px, 2.5vw, 16px)',
                   fontWeight: '400'
                 }}
               >

@@ -102,160 +102,436 @@ const DigitalMarketingSection: React.FC = () => {
               Digital Marketing: Driving Growth and Engagement.
             </h2>
 
-            {/* Hexagonal Grid with Hand */}
-            <div className="relative w-full h-[500px]">
-              <div className="relative w-full h-full">
+            {/* Enhanced Digital Marketing Visualization */}
+            <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+              {/* Background marketing pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="marketing-grid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                      <circle cx="25" cy="25" r="1.5" fill="rgba(59, 130, 246, 0.4)" />
+                      <line x1="25" y1="0" x2="25" y2="50" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                      <line x1="0" y1="25" x2="50" y2="25" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#marketing-grid)" />
+                </svg>
+              </div>
+
+              {/* Main Marketing Visualization SVG */}
+              <div className="relative z-10 w-full h-full max-w-lg">
                 <svg 
                   className="w-full h-full" 
-                  viewBox="0 0 400 500" 
+                  viewBox="0 0 500 500" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  {/* Hexagonal Grid */}
-                  {hexagonLabels.map((hex, index) => {
-                    const size = hex.highlighted ? 60 : 45;
-                    const centerX = (hex.x / 100) * 400;
-                    const centerY = (hex.y / 100) * 400;
-                    
-                    // Calculate hexagon points
-                    const points = [];
-                    for (let i = 0; i < 6; i++) {
-                      const angle = (Math.PI / 3) * i;
-                      const x = centerX + size * Math.cos(angle);
-                      const y = centerY + size * Math.sin(angle);
-                      points.push(`${x},${y}`);
-                    }
-                    
-                    return (
-                      <g key={index}>
-                        {/* Hexagon */}
-                        <motion.polygon
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.8, delay: index * 0.1 }}
-                          points={points.join(' ')}
-                          stroke={hex.highlighted ? 'rgba(234, 179, 8, 0.8)' : 'rgba(59, 130, 246, 0.6)'}
-                          strokeWidth="2"
-                          fill={hex.highlighted ? 'rgba(234, 179, 8, 0.2)' : 'rgba(59, 130, 246, 0.1)'}
+                  {/* Central Hub - Digital Marketing Core */}
+                  <g>
+                    {/* Central hexagon - Main hub */}
+                    <motion.polygon
+                      initial={{ pathLength: 0, opacity: 0, scale: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1 }}
+                      points="250,150 280,170 280,200 250,220 220,200 220,170"
+                      stroke="rgba(234, 179, 8, 0.9)"
+                      strokeWidth="3"
+                      fill="rgba(234, 179, 8, 0.2)"
+                      style={{
+                        filter: 'drop-shadow(0 0 20px rgba(234, 179, 8, 0.7))'
+                      }}
+                    />
+                    <motion.text
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
+                      x="250"
+                      y="180"
+                      textAnchor="middle"
+                      fill="#fbbf24"
+                      fontSize="14"
+                      fontWeight="700"
+                      fontFamily="SF Pro Display, sans-serif"
+                    >
+                      MARKETING
+                    </motion.text>
+                    <motion.text
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      x="250"
+                      y="195"
+                      textAnchor="middle"
+                      fontSize="24"
+                    >
+                      🎯
+                    </motion.text>
+
+                    {/* Surrounding Marketing Channels - Hexagons */}
+                    {[
+                      { angle: 0, label: 'SEO', icon: '📊', color: 'rgba(59, 130, 246, 0.8)', delay: 0.2 },
+                      { angle: 60, label: 'ADS', icon: '📢', color: 'rgba(139, 92, 246, 0.8)', delay: 0.3 },
+                      { angle: 120, label: 'SOCIAL', icon: '📱', color: 'rgba(236, 72, 153, 0.8)', delay: 0.4 },
+                      { angle: 180, label: 'CONTENT', icon: '💻', color: 'rgba(34, 197, 94, 0.8)', delay: 0.5 },
+                      { angle: 240, label: 'ANALYTICS', icon: '📈', color: 'rgba(234, 179, 8, 0.8)', delay: 0.6 },
+                      { angle: 300, label: 'EMAIL', icon: '✉️', color: 'rgba(249, 115, 22, 0.8)', delay: 0.7 }
+                    ].map((channel, i) => {
+                      const radius = 120;
+                      const centerX = 250;
+                      const centerY = 185;
+                      const x = centerX + Math.cos((channel.angle * Math.PI) / 180) * radius;
+                      const y = centerY + Math.sin((channel.angle * Math.PI) / 180) * radius;
+                      const hexSize = 35;
+                      const points = [];
+                      for (let j = 0; j < 6; j++) {
+                        const angle = (Math.PI / 3) * j;
+                        const px = x + hexSize * Math.cos(angle);
+                        const py = y + hexSize * Math.sin(angle);
+                        points.push(`${px},${py}`);
+                      }
+                      
+                      return (
+                        <g key={`channel-${i}`}>
+                          {/* Hexagon */}
+                          <motion.polygon
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            animate={{
+                              scale: [1, 1.1, 1],
+                              opacity: [0.9, 1, 0.9]
+                            }}
+                            transition={{
+                              duration: 2.5,
+                              repeat: Infinity,
+                              delay: channel.delay,
+                              ease: "easeInOut"
+                            }}
+                            points={points.join(' ')}
+                            stroke={channel.color}
+                            strokeWidth="2.5"
+                            fill={channel.color.replace('0.8', '0.15')}
+                            style={{
+                              filter: `drop-shadow(0 0 15px ${channel.color.replace('0.8', '0.5')})`
+                            }}
+                          />
+                          
+                          {/* Label */}
+                          <motion.text
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: channel.delay + 0.2 }}
+                            x={x}
+                            y={y - 8}
+                            textAnchor="middle"
+                            fill="white"
+                            fontSize="11"
+                            fontWeight="600"
+                            fontFamily="SF Pro Display, sans-serif"
+                          >
+                            {channel.label}
+                          </motion.text>
+                          
+                          {/* Icon */}
+                          <motion.text
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              rotate: [0, 5, 0]
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              delay: channel.delay + 0.3
+                            }}
+                            x={x}
+                            y={y + 12}
+                            textAnchor="middle"
+                            fontSize="18"
+                          >
+                            {channel.icon}
+                          </motion.text>
+
+                          {/* Connection line to center */}
+                          <motion.line
+                            initial={{ pathLength: 0, opacity: 0 }}
+                            whileInView={{ pathLength: 1, opacity: 0.4 }}
+                            viewport={{ once: true }}
+                            animate={{
+                              opacity: [0.4, 0.7, 0.4],
+                              strokeDashoffset: [0, -30, 0]
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              delay: channel.delay + 0.5
+                            }}
+                            x1={centerX}
+                            y1={centerY}
+                            x2={x}
+                            y2={y}
+                            stroke={channel.color}
+                            strokeWidth="2"
+                            strokeDasharray="8,4"
+                            markerEnd="url(#arrowhead-marketing)"
+                          />
+                        </g>
+                      );
+                    })}
+
+                    {/* Arrow marker */}
+                    <defs>
+                      <marker
+                        id="arrowhead-marketing"
+                        markerWidth="10"
+                        markerHeight="10"
+                        refX="9"
+                        refY="3"
+                        orient="auto"
+                      >
+                        <polygon
+                          points="0 0, 10 3, 0 6"
+                          fill="rgba(59, 130, 246, 0.6)"
+                        />
+                      </marker>
+                    </defs>
+
+                    {/* Data flow particles */}
+                    {[0, 1, 2, 3].map((i) => {
+                      const channels = [
+                        { angle: 0, color: 'rgba(59, 130, 246, 1)' },
+                        { angle: 120, color: 'rgba(236, 72, 153, 1)' },
+                        { angle: 180, color: 'rgba(34, 197, 94, 1)' },
+                        { angle: 300, color: 'rgba(249, 115, 22, 1)' }
+                      ];
+                      const channel = channels[i];
+                      const radius = 120;
+                      const startX = 250 + Math.cos((channel.angle * Math.PI) / 180) * radius;
+                      const startY = 185 + Math.sin((channel.angle * Math.PI) / 180) * radius;
+                      
+                      return (
+                        <motion.circle
+                          key={`particle-${i}`}
+                          animate={{
+                            cx: [startX, 250, startX],
+                            cy: [startY, 185, startY],
+                            opacity: [0, 1, 1, 0]
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            delay: i * 0.7,
+                            ease: "easeInOut"
+                          }}
+                          r="4"
+                          fill={channel.color}
                           style={{
-                            filter: hex.highlighted ? 'drop-shadow(0 0 10px rgba(234, 179, 8, 0.6))' : 'drop-shadow(0 0 5px rgba(59, 130, 246, 0.3))'
+                            filter: `drop-shadow(0 0 8px ${channel.color})`
                           }}
                         />
-                        
-                        {/* Label */}
-                        <motion.text
+                      );
+                    })}
+                  </g>
+
+                  {/* Growth Metrics - Top Section */}
+                  <g>
+                    {[
+                      { label: 'Growth', value: '+250%', x: 100, y: 80, delay: 0.4 },
+                      { label: 'Engagement', value: '+180%', x: 400, y: 80, delay: 0.6 }
+                    ].map((metric, i) => (
+                      <g key={`metric-${i}`}>
+                        <motion.rect
                           initial={{ opacity: 0, scale: 0 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                          x={centerX}
-                          y={centerY - 15}
+                          animate={{
+                            y: [metric.y, metric.y - 8, metric.y],
+                            opacity: [0.8, 1, 0.8]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: metric.delay,
+                            ease: "easeInOut"
+                          }}
+                          x={metric.x - 50}
+                          y={metric.y - 25}
+                          width="100"
+                          height="50"
+                          rx="12"
+                          fill="rgba(34, 197, 94, 0.15)"
+                          stroke="rgba(34, 197, 94, 0.6)"
+                          strokeWidth="2"
+                          style={{
+                            filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.4))'
+                          }}
+                        />
+                        <motion.text
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: metric.delay + 0.2 }}
+                          x={metric.x}
+                          y={metric.y - 8}
                           textAnchor="middle"
-                          fill={hex.highlighted ? '#fbbf24' : '#ffffff'}
-                          fontSize={hex.highlighted ? '12' : '10'}
+                          fill="rgba(34, 197, 94, 1)"
+                          fontSize="12"
                           fontWeight="600"
                           fontFamily="SF Pro Display, sans-serif"
                         >
-                          {hex.label}
+                          {metric.label}
                         </motion.text>
-                        
-                        {/* Icon */}
                         <motion.text
-                          initial={{ opacity: 0, scale: 0 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                          x={centerX}
-                          y={centerY + 10}
+                          transition={{ duration: 0.5, delay: metric.delay + 0.3 }}
+                          x={metric.x}
+                          y={metric.y + 12}
                           textAnchor="middle"
-                          fontSize="20"
+                          fill="white"
+                          fontSize="18"
+                          fontWeight="700"
+                          fontFamily="SF Pro Display, sans-serif"
                         >
-                          {hex.icon}
+                          {metric.value}
                         </motion.text>
                       </g>
-                    );
-                  })}
+                    ))}
+                  </g>
 
-                  {/* Connecting Lines */}
-                  {[
-                    [0, 1], [0, 2], [0, 3], [0, 4], [0, 5],
-                    [1, 3], [2, 4], [3, 5], [4, 5]
-                  ].map(([from, to], index) => {
-                    const fromHex = hexagonLabels[from];
-                    const toHex = hexagonLabels[to];
-                    const fromX = (fromHex.x / 100) * 400;
-                    const fromY = (fromHex.y / 100) * 400;
-                    const toX = (toHex.x / 100) * 400;
-                    const toY = (toHex.y / 100) * 400;
-                    
-                    return (
-                      <motion.line
-                        key={`line-${index}`}
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 0.4 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.8 + index * 0.05 }}
-                        x1={fromX}
-                        y1={fromY}
-                        x2={toX}
-                        y2={toY}
+                  {/* Analytics Chart - Bottom Section */}
+                  <g>
+                    <motion.g
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.8 }}
+                    >
+                      {/* Chart background */}
+                      <rect
+                        x="80"
+                        y="380"
+                        width="340"
+                        height="80"
+                        rx="12"
+                        fill="rgba(0, 0, 0, 0.4)"
                         stroke="rgba(59, 130, 246, 0.4)"
-                        strokeWidth="1.5"
+                        strokeWidth="2"
                       />
-                    );
-                  })}
-                </svg>
+                      
+                      {/* Chart bars */}
+                      {[0, 1, 2, 3, 4, 5].map((i) => (
+                        <motion.rect
+                          key={`bar-${i}`}
+                          initial={{ height: 0 }}
+                          whileInView={{ height: 30 + i * 8 }}
+                          viewport={{ once: true }}
+                          animate={{
+                            height: [30 + i * 8, 35 + i * 8, 30 + i * 8],
+                            opacity: [0.8, 1, 0.8]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: 1 + i * 0.1
+                          }}
+                          x={100 + i * 50}
+                          y={440 - (30 + i * 8)}
+                          width="30"
+                          rx="4"
+                          fill="rgba(59, 130, 246, 0.8)"
+                          style={{
+                            filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.6))'
+                          }}
+                        />
+                      ))}
+                      
+                      {/* Chart label */}
+                      <motion.text
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 1.2 }}
+                        x="250"
+                        y="475"
+                        textAnchor="middle"
+                        fill="rgba(59, 130, 246, 1)"
+                        fontSize="14"
+                        fontWeight="600"
+                        fontFamily="SF Pro Display, sans-serif"
+                      >
+                        Performance Growth
+                      </motion.text>
+                    </motion.g>
+                  </g>
 
-                {/* Hand Graphic */}
-                <motion.div
-                  initial={{ opacity: 0, x: -50, rotate: -30 }}
-                  whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                  className="absolute bottom-20 left-16"
-                  style={{
-                    transform: 'perspective(1000px) rotateX(10deg) rotateY(-10deg)'
-                  }}
-                >
-                  <svg 
-                    className="w-32 h-32" 
-                    viewBox="0 0 100 100" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
+                  {/* ROI Indicator - Top Right */}
+                  <motion.g
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 1 }}
                   >
-                    {/* Hand outline */}
-                    <motion.path
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 1.2 }}
-                      d="M 30 20 Q 25 30 30 40 Q 35 50 40 60 Q 45 70 50 75 Q 55 80 60 75 Q 65 70 70 60 Q 75 50 80 40 Q 85 30 80 20 Q 75 15 70 20 Q 65 25 60 30 Q 55 35 50 40 Q 45 35 40 30 Q 35 25 30 20 Z"
-                      stroke="rgba(59, 130, 246, 0.8)"
-                      strokeWidth="2"
-                      fill="rgba(59, 130, 246, 0.2)"
-                      style={{
-                        filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.5))'
+                    <motion.circle
+                      animate={{
+                        scale: [1, 1.15, 1],
+                        opacity: [0.8, 1, 0.8]
                       }}
-                    />
-                    
-                    {/* Finger pointing */}
-                    <motion.path
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 1.4 }}
-                      d="M 60 30 L 75 15"
-                      stroke="rgba(59, 130, 246, 0.8)"
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity
+                      }}
+                      cx="420"
+                      cy="250"
+                      r="40"
+                      fill="rgba(34, 197, 94, 0.2)"
+                      stroke="rgba(34, 197, 94, 0.8)"
                       strokeWidth="3"
-                      strokeLinecap="round"
                       style={{
-                        filter: 'drop-shadow(0 0 5px rgba(59, 130, 246, 0.6))'
+                        filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.6))'
                       }}
                     />
-                  </svg>
-                </motion.div>
+                    <motion.text
+                      x="420"
+                      y="245"
+                      textAnchor="middle"
+                      fontSize="22"
+                      fontWeight="700"
+                      fill="rgba(34, 197, 94, 1)"
+                      fontFamily="SF Pro Display, sans-serif"
+                    >
+                      ROI
+                    </motion.text>
+                    <motion.text
+                      x="420"
+                      y="262"
+                      textAnchor="middle"
+                      fontSize="18"
+                      fontWeight="700"
+                      fill="white"
+                      fontFamily="SF Pro Display, sans-serif"
+                    >
+                      5x
+                    </motion.text>
+                  </motion.g>
+                </svg>
               </div>
+
+              {/* Glow effect overlay */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(234, 179, 8, 0.1) 0%, transparent 70%)',
+                  filter: 'blur(60px)'
+                }}
+              />
             </div>
           </motion.div>
 

@@ -93,166 +93,363 @@ const CloudSection: React.FC = () => {
               Cloud Solutions: Scalable, Secure, and Future-Ready
             </h2>
 
-            {/* Cloud Graphic */}
-            <div className="relative w-full h-[500px] flex items-center justify-center">
-              {/* Outer Sphere (Global Network) */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg 
-                  className="w-full h-full max-w-md" 
-                  viewBox="0 0 400 400" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Outer sphere circle */}
-                  <motion.circle
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 0.3 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5 }}
-                    cx="200"
-                    cy="200"
-                    r="180"
-                    stroke="rgba(255, 255, 255, 0.3)"
-                    strokeWidth="1"
-                    fill="none"
-                  />
-                  
-                  {/* Network lines in outer sphere */}
-                  {[...Array(12)].map((_, i) => {
-                    const angle = (i * 360) / 12;
-                    const x1 = 200 + Math.cos((angle * Math.PI) / 180) * 180;
-                    const y1 = 200 + Math.sin((angle * Math.PI) / 180) * 180;
-                    const x2 = 200 + Math.cos(((angle + 30) * Math.PI) / 180) * 180;
-                    const y2 = 200 + Math.sin(((angle + 30) * Math.PI) / 180) * 180;
-                    
-                    return (
-                      <motion.line
-                        key={`outer-${i}`}
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 0.2 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.5 + i * 0.05 }}
-                        x1={x1}
-                        y1={y1}
-                        x2={x2}
-                        y2={y2}
-                        stroke="rgba(255, 255, 255, 0.3)"
-                        strokeWidth="0.5"
-                      />
-                    );
-                  })}
-
-                  {/* Outer sphere dots */}
-                  {[...Array(24)].map((_, i) => {
-                    const angle = (i * 360) / 24;
-                    const x = 200 + Math.cos((angle * Math.PI) / 180) * 180;
-                    const y = 200 + Math.sin((angle * Math.PI) / 180) * 180;
-                    
-                    return (
-                      <motion.circle
-                        key={`outer-dot-${i}`}
-                        initial={{ scale: 0, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 0.6 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: 0.8 + i * 0.02 }}
-                        cx={x}
-                        cy={y}
-                        r="2"
-                        fill="rgba(255, 255, 255, 0.6)"
-                      />
-                    );
-                  })}
+            {/* Animated Cloud Infrastructure Visualization */}
+            <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+              {/* Background grid pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="cloud-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <circle cx="20" cy="20" r="1" fill="rgba(59, 130, 246, 0.4)" />
+                      <line x1="20" y1="0" x2="20" y2="40" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                      <line x1="0" y1="20" x2="40" y2="20" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#cloud-grid)" />
                 </svg>
               </div>
 
-              {/* Inner Cloud Graphic */}
-              <div className="relative z-10">
+              {/* Main Cloud Infrastructure SVG */}
+              <div className="relative z-10 w-full h-full max-w-lg">
                 <svg 
-                  className="w-full h-full max-w-sm" 
-                  viewBox="0 0 300 300" 
+                  className="w-full h-full" 
+                  viewBox="0 0 500 500" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  {/* Cloud shape outline */}
-                  <motion.path
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    whileInView={{ pathLength: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
-                    d="M 80 150 Q 60 120 80 100 Q 100 80 130 90 Q 140 60 170 60 Q 200 60 220 80 Q 250 70 270 100 Q 280 120 260 140 Q 280 160 260 180 Q 240 200 210 190 Q 200 220 170 220 Q 140 220 130 190 Q 100 200 80 180 Q 60 160 80 150 Z"
-                    stroke="rgba(255, 255, 255, 0.9)"
-                    strokeWidth="2"
-                    fill="none"
-                    style={{
-                      filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'
-                    }}
-                  />
-                  
-                  {/* Network lines inside cloud */}
-                  {[...Array(8)].map((_, i) => {
-                    const startX = 100 + (i * 20);
-                    const startY = 120 + (i % 3) * 30;
-                    const endX = 200 + (i * 15);
-                    const endY = 180 - (i % 2) * 20;
-                    
-                    return (
+                  {/* Central Cloud Infrastructure */}
+                  <g>
+                    {/* Main cloud shape - smooth and uniform curves */}
+                    <motion.path
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2, ease: "easeInOut" }}
+                      d="M 140 200 
+                         Q 120 180 130 150 
+                         Q 120 120 150 120 
+                         Q 150 100 180 100 
+                         Q 200 80 230 90 
+                         Q 250 70 280 75 
+                         Q 310 70 330 90 
+                         Q 350 100 360 120 
+                         Q 380 120 370 150 
+                         Q 380 180 360 200 
+                         Q 360 220 340 230 
+                         Q 320 240 300 235 
+                         Q 280 240 260 230 
+                         Q 240 220 220 220 
+                         Q 200 230 180 220 
+                         Q 160 220 150 200 Z"
+                      stroke="rgba(59, 130, 246, 0.8)"
+                      strokeWidth="3"
+                      fill="rgba(59, 130, 246, 0.1)"
+                      style={{
+                        filter: 'drop-shadow(0 0 15px rgba(59, 130, 246, 0.6))'
+                      }}
+                    />
+
+                    {/* Data centers / Servers inside cloud - uniformly positioned */}
+                    {[
+                      { x: 210, y: 160, delay: 0.5 },
+                      { x: 260, y: 180, delay: 0.7 },
+                      { x: 240, y: 210, delay: 0.9 },
+                      { x: 290, y: 200, delay: 1.1 }
+                    ].map((server, i) => (
+                      <g key={`server-${i}`}>
+                        {/* Server box */}
+                        <motion.rect
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: server.delay }}
+                          x={server.x - 15}
+                          y={server.y - 10}
+                          width="30"
+                          height="20"
+                          rx="3"
+                          fill="rgba(59, 130, 246, 0.3)"
+                          stroke="rgba(59, 130, 246, 0.6)"
+                          strokeWidth="1.5"
+                        />
+                        {/* Server indicator lights */}
+                        {[0, 1, 2].map((j) => (
+                          <motion.circle
+                            key={`light-${j}`}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            animate={{
+                              opacity: [0.3, 1, 0.3]
+                            }}
+                            transition={{
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: server.delay + j * 0.2
+                            }}
+                            cx={server.x - 8 + j * 8}
+                            cy={server.y}
+                            r="2"
+                            fill="rgba(34, 197, 94, 0.8)"
+                          />
+                        ))}
+                      </g>
+                    ))}
+
+                    {/* Network connections between servers */}
+                    {[
+                      { from: { x: 210, y: 160 }, to: { x: 260, y: 180 } },
+                      { from: { x: 260, y: 180 }, to: { x: 240, y: 210 } },
+                      { from: { x: 240, y: 210 }, to: { x: 290, y: 200 } },
+                      { from: { x: 210, y: 160 }, to: { x: 290, y: 200 } }
+                    ].map((conn, i) => (
                       <motion.line
-                        key={`cloud-line-${i}`}
+                        key={`conn-${i}`}
                         initial={{ pathLength: 0, opacity: 0 }}
                         whileInView={{ pathLength: 1, opacity: 0.4 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1.5, delay: 1 + i * 0.1 }}
-                        x1={startX}
-                        y1={startY}
-                        x2={endX}
-                        y2={endY}
-                        stroke="rgba(255, 255, 255, 0.5)"
-                        strokeWidth="1"
+                        transition={{ duration: 1, delay: 1.2 + i * 0.1 }}
+                        x1={conn.from.x}
+                        y1={conn.from.y}
+                        x2={conn.to.x}
+                        y2={conn.to.y}
+                        stroke="rgba(59, 130, 246, 0.5)"
+                        strokeWidth="1.5"
+                        strokeDasharray="4,4"
                       />
+                    ))}
+
+                    {/* Data flow particles */}
+                    {[0, 1, 2].map((i) => (
+                      <motion.circle
+                        key={`particle-${i}`}
+                        animate={{
+                          cx: [210, 260, 240, 290, 210],
+                          cy: [160, 180, 210, 200, 160],
+                          opacity: [0, 1, 1, 1, 0]
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          delay: i * 1.3,
+                          ease: "easeInOut"
+                        }}
+                        r="3"
+                        fill="rgba(59, 130, 246, 1)"
+                        style={{
+                          filter: 'drop-shadow(0 0 6px rgba(59, 130, 246, 1))'
+                        }}
+                      />
+                    ))}
+                  </g>
+
+                  {/* Floating Cloud Service Badges - uniformly distributed around cloud */}
+                  {[
+                    { name: 'AWS', angle: 45, radius: 160, color: 'rgba(255, 153, 0, 0.8)', delay: 0.3 },
+                    { name: 'Azure', angle: 135, radius: 160, color: 'rgba(0, 120, 212, 0.8)', delay: 0.5 },
+                    { name: 'GCP', angle: 225, radius: 160, color: 'rgba(66, 133, 244, 0.8)', delay: 0.7 },
+                    { name: 'Docker', angle: 315, radius: 160, color: 'rgba(13, 183, 255, 0.8)', delay: 0.9 }
+                  ].map((service, i) => {
+                    const centerX = 250;
+                    const centerY = 200;
+                    const x = centerX + Math.cos((service.angle * Math.PI) / 180) * service.radius;
+                    const y = centerY + Math.sin((service.angle * Math.PI) / 180) * service.radius;
+                    
+                    return (
+                      <g key={`service-${i}`}>
+                        {/* Service badge background */}
+                        <motion.rect
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: service.delay }}
+                          x={x - 35}
+                          y={y - 15}
+                          width="70"
+                          height="30"
+                          rx="15"
+                          fill={service.color.replace('0.8', '0.2')}
+                          stroke={service.color}
+                          strokeWidth="2"
+                          style={{
+                            filter: `drop-shadow(0 0 15px ${service.color.replace('0.8', '0.4')})`
+                          }}
+                        />
+                        {/* Service name */}
+                        <motion.text
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: service.delay + 0.2 }}
+                          x={x}
+                          y={y + 5}
+                          textAnchor="middle"
+                          fill="white"
+                          fontSize="14"
+                          fontWeight="600"
+                          fontFamily="SF Pro Display, sans-serif"
+                        >
+                          {service.name}
+                        </motion.text>
+                        {/* Pulsing ring */}
+                        <motion.circle
+                          animate={{
+                            r: [15, 25, 15],
+                            opacity: [0.6, 0, 0.6]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: service.delay
+                          }}
+                          cx={x}
+                          cy={y}
+                          fill="none"
+                          stroke={service.color}
+                          strokeWidth="1.5"
+                        />
+                      </g>
                     );
                   })}
 
-                  {/* Dots inside cloud */}
-                  {[...Array(15)].map((_, i) => {
-                    const x = 100 + (i % 5) * 40 + Math.random() * 20;
-                    const y = 120 + Math.floor(i / 5) * 40 + Math.random() * 20;
+                  {/* Security Shield */}
+                  <g>
+                    <motion.path
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 1.2 }}
+                      d="M 250 80 L 280 90 L 270 120 Q 270 140 250 150 Q 230 140 230 120 L 220 90 Z"
+                      stroke="rgba(34, 197, 94, 0.8)"
+                      strokeWidth="2"
+                      fill="rgba(34, 197, 94, 0.1)"
+                      style={{
+                        filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.6))'
+                      }}
+                    />
+                    <motion.text
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 1.5 }}
+                      x="250"
+                      y="125"
+                      textAnchor="middle"
+                      fill="rgba(34, 197, 94, 1)"
+                      fontSize="20"
+                      fontWeight="700"
+                      fontFamily="SF Pro Display, sans-serif"
+                    >
+                      ✓
+                    </motion.text>
+                  </g>
+
+                  {/* Scalability indicators - expanding circles */}
+                  {[0, 1, 2].map((i) => (
+                    <motion.circle
+                      key={`scale-${i}`}
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 0.3 }}
+                      viewport={{ once: true }}
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        opacity: [0.3, 0, 0.3]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: 1.5 + i * 0.5
+                      }}
+                      cx="250"
+                      cy="200"
+                      r="60"
+                      fill="none"
+                      stroke="rgba(59, 130, 246, 0.4)"
+                      strokeWidth="2"
+                    />
+                  ))}
+
+                  {/* Global network connections - uniformly distributed */}
+                  {[
+                    { angle: 45, radius: 160 },
+                    { angle: 135, radius: 160 },
+                    { angle: 225, radius: 160 },
+                    { angle: 315, radius: 160 }
+                  ].map((point, i) => {
+                    const centerX = 250;
+                    const centerY = 200;
+                    const x = centerX + Math.cos((point.angle * Math.PI) / 180) * point.radius;
+                    const y = centerY + Math.sin((point.angle * Math.PI) / 180) * point.radius;
                     
                     return (
-                      <motion.circle
-                        key={`cloud-dot-${i}`}
-                        initial={{ scale: 0, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 0.8 }}
+                      <motion.line
+                        key={`network-${i}`}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 0.2 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: 1.5 + i * 0.05 }}
-                        cx={x}
-                        cy={y}
-                        r="2.5"
-                        fill="rgba(255, 255, 255, 0.8)"
+                        transition={{ duration: 1, delay: 1.8 + i * 0.1 }}
+                        x1={centerX}
+                        y1={centerY}
+                        x2={x}
+                        y2={y}
+                        stroke="rgba(59, 130, 246, 0.3)"
+                        strokeWidth="1"
+                        strokeDasharray="3,3"
                       />
                     );
                   })}
                 </svg>
               </div>
 
-              {/* "Cloud" Text */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 2 }}
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
-              >
-                <p 
-                  className="text-white text-center"
+              {/* Floating metrics */}
+              {[
+                { label: 'Uptime', value: '99.9%', x: -180, y: -100, delay: 0.4 },
+                { label: 'Security', value: '100%', x: 180, y: -100, delay: 0.6 },
+                { label: 'Scale', value: '∞', x: 0, y: 220, delay: 0.8 }
+              ].map((metric, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  animate={{
+                    y: [metric.y, metric.y - 10, metric.y],
+                    opacity: [0.8, 1, 0.8]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: metric.delay,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
                   style={{
-                    fontFamily: 'SF Pro Display, sans-serif',
-                    fontSize: '32px',
-                    fontWeight: '600'
+                    x: metric.x,
+                    y: metric.y
                   }}
                 >
-                  Cloud
-                </p>
-              </motion.div>
+                  <div 
+                    className="px-3 py-2 rounded-lg backdrop-blur-sm text-center"
+                    style={{
+                      background: 'rgba(59, 130, 246, 0.15)',
+                      border: '1px solid rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)'
+                    }}
+                  >
+                    <div className="text-blue-400 text-xs font-semibold mb-0.5">{metric.label}</div>
+                    <div className="text-white text-lg font-bold">{metric.value}</div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Glow effect overlay */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+                  filter: 'blur(60px)'
+                }}
+              />
             </div>
           </motion.div>
 

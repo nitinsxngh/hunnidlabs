@@ -103,153 +103,464 @@ const LowCodeSection: React.FC = () => {
               Low Code Development: Rapid Solutions, Powerful Results.
             </h2>
 
-            {/* Digital Icons Panel */}
-            <div className="relative w-full h-[500px]">
-              {/* Light Blue Background Panel */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="absolute inset-0 rounded-3xl p-8"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(147, 197, 253, 0.4) 0%, rgba(59, 130, 246, 0.3) 50%, rgba(37, 99, 235, 0.2) 100%)',
-                  boxShadow: '0 20px 60px rgba(59, 130, 246, 0.2)'
-                }}
-              >
-                {/* Digital Icons and Elements */}
-                <div className="relative w-full h-full">
-                  {/* Folder Icon */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="absolute top-[10%] left-[15%]"
-                  >
-                    <div className="w-16 h-12 bg-blue-500 rounded-t-lg">
-                      <div className="w-8 h-8 bg-blue-400 rounded-t-lg -mt-2 ml-2"></div>
-                    </div>
-                  </motion.div>
+            {/* Animated Low Code Development Visualization - Clean Layout */}
+            <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+              {/* Background code pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="lowcode-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <rect x="0" y="0" width="40" height="40" fill="none" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                      <circle cx="20" cy="20" r="1" fill="rgba(59, 130, 246, 0.4)" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#lowcode-grid)" />
+                </svg>
+              </div>
 
-                  {/* Document with Checkmark */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="absolute top-[20%] left-[40%]"
-                  >
-                    <div className="w-12 h-16 bg-white rounded shadow-lg flex items-center justify-center">
-                      <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                      </svg>
-                    </div>
-                  </motion.div>
+              {/* Main Low Code Visualization SVG - Cleaner Layout */}
+              <div className="relative z-10 w-full h-full max-w-lg">
+                <svg 
+                  className="w-full h-full" 
+                  viewBox="0 0 500 500" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* Central Workflow Area - Left Side */}
+                  <g>
+                    {/* Canvas background - Left side */}
+                    <motion.rect
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8 }}
+                      x="50"
+                      y="100"
+                      width="200"
+                      height="300"
+                      rx="15"
+                      fill="rgba(15, 23, 42, 0.6)"
+                      stroke="rgba(59, 130, 246, 0.4)"
+                      strokeWidth="2"
+                    />
 
-                  {/* Chart/Graph */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="absolute top-[35%] left-[25%]"
-                  >
-                    <div className="w-20 h-16 bg-white rounded shadow-lg p-2">
-                      <div className="flex items-end gap-1 h-full">
-                        <div className="w-4 bg-blue-500 rounded-t" style={{ height: '40%' }}></div>
-                        <div className="w-4 bg-blue-400 rounded-t" style={{ height: '70%' }}></div>
-                        <div className="w-4 bg-blue-500 rounded-t" style={{ height: '50%' }}></div>
-                        <div className="w-4 bg-blue-400 rounded-t" style={{ height: '90%' }}></div>
-                      </div>
-                    </div>
-                  </motion.div>
+                    {/* Building Blocks - Vertical Flow, Well Spaced */}
+                    {[
+                      { y: 130, color: 'rgba(59, 130, 246, 0.8)', label: 'Input', delay: 0.2 },
+                      { y: 200, color: 'rgba(139, 92, 246, 0.8)', label: 'Process', delay: 0.4 },
+                      { y: 270, color: 'rgba(236, 72, 153, 0.8)', label: 'Output', delay: 0.6 }
+                    ].map((block, i) => (
+                      <g key={`block-${i}`}>
+                        <motion.rect
+                          initial={{ opacity: 0, scale: 0, y: block.y + 20 }}
+                          whileInView={{ opacity: 1, scale: 1, y: block.y }}
+                          viewport={{ once: true }}
+                          animate={{
+                            y: [block.y, block.y - 5, block.y],
+                            opacity: [0.9, 1, 0.9]
+                          }}
+                          transition={{
+                            duration: 2.5,
+                            repeat: Infinity,
+                            delay: block.delay,
+                            ease: "easeInOut"
+                          }}
+                          x="80"
+                          y={block.y}
+                          width="140"
+                          height="50"
+                          rx="8"
+                          fill={block.color}
+                          stroke="rgba(255, 255, 255, 0.3)"
+                          strokeWidth="2"
+                          style={{
+                            filter: `drop-shadow(0 0 15px ${block.color.replace('0.8', '0.6')})`
+                          }}
+                        />
+                        <motion.text
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: block.delay + 0.2 }}
+                          x="150"
+                          y={block.y + 32}
+                          textAnchor="middle"
+                          fill="white"
+                          fontSize="16"
+                          fontWeight="600"
+                          fontFamily="SF Pro Display, sans-serif"
+                        >
+                          {block.label}
+                        </motion.text>
+                      </g>
+                    ))}
 
-                  {/* Person Icon with Data */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    className="absolute top-[50%] left-[55%]"
-                  >
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
-                        👤
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full flex items-center justify-center text-xs text-white">
-                        5
-                      </div>
-                    </div>
-                  </motion.div>
+                    {/* Connection Lines - Vertical Flow */}
+                    {[
+                      { from: { x: 150, y: 180 }, to: { x: 150, y: 200 } },
+                      { from: { x: 150, y: 250 }, to: { x: 150, y: 270 } }
+                    ].map((conn, i) => (
+                      <motion.line
+                        key={`conn-${i}`}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 0.5 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          opacity: [0.5, 0.8, 0.5],
+                          strokeDashoffset: [0, -20, 0]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: 1.2 + i * 0.2
+                        }}
+                        x1={conn.from.x}
+                        y1={conn.from.y}
+                        x2={conn.to.x}
+                        y2={conn.to.y}
+                        stroke="rgba(59, 130, 246, 0.6)"
+                        strokeWidth="3"
+                        strokeDasharray="8,4"
+                        markerEnd="url(#arrowhead-lowcode)"
+                      />
+                    ))}
 
-                  {/* Security Camera */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className="absolute top-[60%] left-[20%]"
-                  >
-                    <div className="w-14 h-10 bg-white rounded shadow-lg flex items-center justify-center">
-                      <div className="w-8 h-6 bg-blue-500 rounded"></div>
-                    </div>
-                  </motion.div>
+                    {/* Arrow marker */}
+                    <defs>
+                      <marker
+                        id="arrowhead-lowcode"
+                        markerWidth="10"
+                        markerHeight="10"
+                        refX="9"
+                        refY="3"
+                        orient="auto"
+                      >
+                        <polygon
+                          points="0 0, 10 3, 0 6"
+                          fill="rgba(59, 130, 246, 0.6)"
+                        />
+                      </marker>
+                    </defs>
+                  </g>
 
-                  {/* Server Rack */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.7 }}
-                    className="absolute top-[70%] left-[45%]"
-                  >
-                    <div className="w-16 h-20 bg-gray-800 rounded shadow-lg">
-                      <div className="p-1 space-y-1">
-                        {[...Array(4)].map((_, i) => (
-                          <div key={i} className="h-3 bg-blue-400 rounded"></div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
+                  {/* Right Side - Integration & Metrics */}
+                  <g>
+                    {/* Integration Blocks - Right Side, Well Spaced */}
+                    {[
+                      { y: 150, color: 'rgba(34, 197, 94, 0.8)', label: 'API', delay: 0.8 },
+                      { y: 230, color: 'rgba(234, 179, 8, 0.8)', label: 'Database', delay: 1.0 }
+                    ].map((block, i) => (
+                      <g key={`integration-${i}`}>
+                        <motion.rect
+                          initial={{ opacity: 0, scale: 0, x: 350 }}
+                          whileInView={{ opacity: 1, scale: 1, x: 280 }}
+                          viewport={{ once: true }}
+                          animate={{
+                            x: [280, 285, 280],
+                            opacity: [0.9, 1, 0.9]
+                          }}
+                          transition={{
+                            duration: 2.5,
+                            repeat: Infinity,
+                            delay: block.delay,
+                            ease: "easeInOut"
+                          }}
+                          x="280"
+                          y={block.y}
+                          width="140"
+                          height="60"
+                          rx="8"
+                          fill={block.color}
+                          stroke="rgba(255, 255, 255, 0.3)"
+                          strokeWidth="2"
+                          style={{
+                            filter: `drop-shadow(0 0 15px ${block.color.replace('0.8', '0.6')})`
+                          }}
+                        />
+                        <motion.text
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: block.delay + 0.2 }}
+                          x="350"
+                          y={block.y + 38}
+                          textAnchor="middle"
+                          fill="white"
+                          fontSize="16"
+                          fontWeight="600"
+                          fontFamily="SF Pro Display, sans-serif"
+                        >
+                          {block.label}
+                        </motion.text>
+                      </g>
+                    ))}
 
-                  {/* Abstract Lines and Dots */}
-                  {[...Array(8)].map((_, i) => (
-                    <motion.div
-                      key={`line-${i}`}
+                    {/* Connection from Process to Integrations */}
+                    <motion.line
                       initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: 0.3 }}
+                      whileInView={{ pathLength: 1, opacity: 0.5 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.8 + i * 0.1 }}
-                      className="absolute"
-                      style={{
-                        top: `${20 + (i * 10)}%`,
-                        left: `${30 + (i * 5)}%`,
-                        width: `${40 + i * 5}px`,
-                        height: '2px',
-                        background: 'rgba(59, 130, 246, 0.5)',
-                        transform: `rotate(${i * 15}deg)`
+                      animate={{
+                        opacity: [0.5, 0.8, 0.5],
+                        strokeDashoffset: [0, -20, 0]
                       }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 1.4
+                      }}
+                      x1="220"
+                      y1="225"
+                      x2="280"
+                      y2="180"
+                      stroke="rgba(59, 130, 246, 0.6)"
+                      strokeWidth="3"
+                      strokeDasharray="8,4"
+                      markerEnd="url(#arrowhead-lowcode)"
                     />
-                  ))}
+                    <motion.line
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 0.5 }}
+                      viewport={{ once: true }}
+                      animate={{
+                        opacity: [0.5, 0.8, 0.5],
+                        strokeDashoffset: [0, -20, 0]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 1.6
+                      }}
+                      x1="220"
+                      y1="225"
+                      x2="280"
+                      y2="260"
+                      stroke="rgba(59, 130, 246, 0.6)"
+                      strokeWidth="3"
+                      strokeDasharray="8,4"
+                      markerEnd="url(#arrowhead-lowcode)"
+                    />
+                  </g>
 
-                  {/* Dots */}
-                  {[...Array(12)].map((_, i) => (
-                    <motion.div
-                      key={`dot-${i}`}
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 0.6 }}
+                  {/* Bottom Section - Progress & Code Reduction */}
+                  <g>
+                    {/* Rapid Development Progress - Bottom Center */}
+                    <motion.g
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: 1 + i * 0.05 }}
-                      className="absolute w-2 h-2 bg-blue-500 rounded-full"
-                      style={{
-                        top: `${15 + (i % 4) * 20}%`,
-                        left: `${25 + Math.floor(i / 4) * 20}%`
-                      }}
-                    />
-                  ))}
-                </div>
-              </motion.div>
+                      transition={{ duration: 0.8, delay: 1 }}
+                    >
+                      <rect
+                        x="100"
+                        y="420"
+                        width="300"
+                        height="35"
+                        rx="18"
+                        fill="rgba(0, 0, 0, 0.4)"
+                        stroke="rgba(59, 130, 246, 0.4)"
+                        strokeWidth="2"
+                      />
+                      <motion.rect
+                        initial={{ width: 0 }}
+                        whileInView={{ width: 280 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          width: [0, 280, 280],
+                          opacity: [0.8, 1, 0.8]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 1.2
+                        }}
+                        x="110"
+                        y="425"
+                        height="25"
+                        rx="12"
+                        fill="rgba(34, 197, 94, 0.8)"
+                        style={{
+                          filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.6))'
+                        }}
+                      />
+                      <motion.text
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 1.5 }}
+                        x="250"
+                        y="442"
+                        textAnchor="middle"
+                        fill="white"
+                        fontSize="14"
+                        fontWeight="600"
+                        fontFamily="SF Pro Display, sans-serif"
+                      >
+                        Rapid Development
+                      </motion.text>
+                    </motion.g>
+
+                    {/* Code Reduction - Top Right */}
+                    <motion.g
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 1.2 }}
+                    >
+                      <motion.circle
+                        animate={{
+                          scale: [1, 1.15, 1],
+                          opacity: [0.8, 1, 0.8]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity
+                        }}
+                        cx="400"
+                        cy="120"
+                        r="35"
+                        fill="rgba(34, 197, 94, 0.2)"
+                        stroke="rgba(34, 197, 94, 0.8)"
+                        strokeWidth="3"
+                        style={{
+                          filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.6))'
+                        }}
+                      />
+                      <motion.text
+                        x="400"
+                        y="115"
+                        textAnchor="middle"
+                        fontSize="22"
+                        fontWeight="700"
+                        fill="rgba(34, 197, 94, 1)"
+                        fontFamily="SF Pro Display, sans-serif"
+                      >
+                        -80%
+                      </motion.text>
+                      <motion.text
+                        x="400"
+                        y="132"
+                        textAnchor="middle"
+                        fontSize="11"
+                        fill="white"
+                        fontFamily="SF Pro Display, sans-serif"
+                      >
+                        Code
+                      </motion.text>
+                    </motion.g>
+                  </g>
+
+                  {/* Top Section - Platform Icons */}
+                  <g>
+                    {[
+                      { icon: '⚡', x: 50, y: 50, delay: 0.3 },
+                      { icon: '🔄', x: 450, y: 50, delay: 0.5 }
+                    ].map((platform, i) => (
+                      <motion.text
+                        key={`platform-${i}`}
+                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          y: [platform.y, platform.y - 10, platform.y],
+                          rotate: [0, 10, 0],
+                          opacity: [0.7, 1, 0.7]
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          delay: platform.delay,
+                          ease: "easeInOut"
+                        }}
+                        x={platform.x}
+                        y={platform.y}
+                        fontSize="28"
+                        style={{
+                          filter: 'drop-shadow(0 0 15px rgba(59, 130, 246, 0.6))'
+                        }}
+                      >
+                        {platform.icon}
+                      </motion.text>
+                    ))}
+                  </g>
+
+                  {/* Performance Metrics - Bottom Right, Well Spaced */}
+                  <g>
+                    {[
+                      { label: 'Speed', value: '10x', y: 320, delay: 0.4 },
+                      { label: 'Cost', value: '-60%', y: 360, delay: 0.6 }
+                    ].map((metric, i) => (
+                      <g key={`metric-${i}`}>
+                        <motion.rect
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          animate={{
+                            y: [metric.y, metric.y - 8, metric.y],
+                            opacity: [0.8, 1, 0.8]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: metric.delay,
+                            ease: "easeInOut"
+                          }}
+                          x="360"
+                          y={metric.y - 18}
+                          width="100"
+                          height="36"
+                          rx="10"
+                          fill="rgba(59, 130, 246, 0.15)"
+                          stroke="rgba(59, 130, 246, 0.4)"
+                          strokeWidth="2"
+                          style={{
+                            filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.3))'
+                          }}
+                        />
+                        <motion.text
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: metric.delay + 0.2 }}
+                          x="410"
+                          y={metric.y - 6}
+                          textAnchor="middle"
+                          fill="rgba(59, 130, 246, 1)"
+                          fontSize="11"
+                          fontWeight="600"
+                          fontFamily="SF Pro Display, sans-serif"
+                        >
+                          {metric.label}
+                        </motion.text>
+                        <motion.text
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: metric.delay + 0.3 }}
+                          x="410"
+                          y={metric.y + 8}
+                          textAnchor="middle"
+                          fill="white"
+                          fontSize="14"
+                          fontWeight="700"
+                          fontFamily="SF Pro Display, sans-serif"
+                        >
+                          {metric.value}
+                        </motion.text>
+                      </g>
+                    ))}
+                  </g>
+                </svg>
+              </div>
+
+              {/* Glow effect overlay */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+                  filter: 'blur(60px)'
+                }}
+              />
             </div>
           </motion.div>
 

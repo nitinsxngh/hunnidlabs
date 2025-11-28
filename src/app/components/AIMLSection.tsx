@@ -71,7 +71,7 @@ const AIMLSection: React.FC = () => {
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Section - AI Head Graphic */}
+          {/* Left Section - AI Neural Network Animation */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,83 +93,284 @@ const AIMLSection: React.FC = () => {
               AI & Machine Learning Intelligent Solutions Engineered
             </h2>
 
-            {/* AI Head Graphic */}
-            <div className="relative w-full h-[500px] flex items-center justify-center">
-              {/* Circuit board pattern background */}
-              <div className="absolute inset-0 opacity-20">
+            {/* Animated Neural Network Visualization */}
+            <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+              {/* Animated background grid */}
+              <div className="absolute inset-0 opacity-10">
                 <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                   <defs>
-                    <pattern id="circuit" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <circle cx="20" cy="20" r="1" fill="rgba(59, 130, 246, 0.5)" />
-                      <line x1="20" y1="0" x2="20" y2="40" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="0.5" />
-                      <line x1="0" y1="20" x2="40" y2="20" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="0.5" />
-                      <line x1="20" y1="20" x2="40" y2="0" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
-                      <line x1="20" y1="20" x2="0" y2="40" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                    <pattern id="neural-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                      <circle cx="30" cy="30" r="1.5" fill="rgba(59, 130, 246, 0.6)" />
+                      <line x1="30" y1="0" x2="30" y2="60" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                      <line x1="0" y1="30" x2="60" y2="30" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
                     </pattern>
                   </defs>
-                  <rect width="100%" height="100%" fill="url(#circuit)" />
+                  <rect width="100%" height="100%" fill="url(#neural-grid)" />
                 </svg>
               </div>
 
-              {/* Human Head Profile with AI */}
-              <div className="relative z-10">
+              {/* Neural Network Visualization */}
+              <div className="relative z-10 w-full h-full max-w-lg">
                 <svg 
-                  className="w-full h-full max-w-md" 
-                  viewBox="0 0 400 500" 
+                  className="w-full h-full" 
+                  viewBox="0 0 500 500" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  {/* Head outline - profile view */}
-                  <motion.path
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    whileInView={{ pathLength: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
-                    d="M 200 50 Q 250 80 280 120 Q 300 150 290 200 Q 285 230 270 260 Q 250 300 220 350 Q 200 380 180 400 Q 160 420 140 430 Q 120 440 100 445 Q 80 450 60 445 Q 40 440 30 420 Q 20 400 25 380 Q 30 360 50 340 Q 70 320 90 300 Q 110 280 120 250 Q 130 220 125 190 Q 120 160 110 130 Q 100 100 120 80 Q 140 60 170 55 Q 180 50 200 50 Z"
-                    stroke="rgba(59, 130, 246, 0.8)"
-                    strokeWidth="3"
-                    fill="none"
-                    style={{
-                      filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.6))'
-                    }}
-                  />
-                  
-                  {/* Additional neural network lines inside head */}
-                  {[...Array(8)].map((_, i) => (
-                    <motion.path
-                      key={i}
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: 0.4 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: 0.5 + i * 0.1 }}
-                      d={`M ${150 + i * 10} ${150 + i * 15} Q ${180 + i * 5} ${200 + i * 10} ${200 + i * 8} ${250 + i * 12}`}
-                      stroke="rgba(59, 130, 246, 0.5)"
-                      strokeWidth="1.5"
-                      fill="none"
-                    />
+                  {/* Neural Network Layers */}
+                  {/* Input Layer */}
+                  {[100, 200, 300, 400].map((y, i) => (
+                    <g key={`input-${i}`}>
+                      <motion.circle
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                        cx="100"
+                        cy={y}
+                        r="12"
+                        fill="rgba(59, 130, 246, 0.8)"
+                        style={{
+                          filter: 'drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))'
+                        }}
+                      />
+                      <motion.circle
+                        animate={{
+                          scale: [1, 1.3, 1],
+                          opacity: [0.8, 0.4, 0.8]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: i * 0.3
+                        }}
+                        cx="100"
+                        cy={y}
+                        r="12"
+                        fill="none"
+                        stroke="rgba(59, 130, 246, 0.6)"
+                        strokeWidth="2"
+                      />
+                    </g>
                   ))}
 
-                  {/* AI Text inside head */}
-                  <motion.text
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 1 }}
-                    x="200"
-                    y="280"
-                    textAnchor="middle"
-                    fill="rgba(59, 130, 246, 1)"
-                    fontSize="80"
-                    fontWeight="700"
-                    fontFamily="SF Pro Display, sans-serif"
-                    style={{
-                      filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.8))'
-                    }}
-                  >
-                    AI
-                  </motion.text>
+                  {/* Hidden Layer 1 */}
+                  {[120, 200, 280, 360].map((y, i) => (
+                    <g key={`hidden1-${i}`}>
+                      <motion.circle
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                        cx="250"
+                        cy={y}
+                        r="15"
+                        fill="rgba(139, 92, 246, 0.8)"
+                        style={{
+                          filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.8))'
+                        }}
+                      />
+                      <motion.circle
+                        animate={{
+                          scale: [1, 1.4, 1],
+                          opacity: [0.8, 0.3, 0.8]
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          delay: 0.5 + i * 0.4
+                        }}
+                        cx="250"
+                        cy={y}
+                        r="15"
+                        fill="none"
+                        stroke="rgba(139, 92, 246, 0.6)"
+                        strokeWidth="2"
+                      />
+                    </g>
+                  ))}
+
+                  {/* Hidden Layer 2 */}
+                  {[150, 250, 350].map((y, i) => (
+                    <g key={`hidden2-${i}`}>
+                      <motion.circle
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
+                        cx="350"
+                        cy={y}
+                        r="18"
+                        fill="rgba(236, 72, 153, 0.8)"
+                        style={{
+                          filter: 'drop-shadow(0 0 12px rgba(236, 72, 153, 0.8))'
+                        }}
+                      />
+                      <motion.circle
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.8, 0.2, 0.8]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 1 + i * 0.5
+                        }}
+                        cx="350"
+                        cy={y}
+                        r="18"
+                        fill="none"
+                        stroke="rgba(236, 72, 153, 0.6)"
+                        strokeWidth="2"
+                      />
+                    </g>
+                  ))}
+
+                  {/* Output Layer */}
+                  <g>
+                    <motion.circle
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 1.2 }}
+                      cx="450"
+                      cy="250"
+                      r="25"
+                      fill="rgba(34, 197, 94, 0.9)"
+                      style={{
+                        filter: 'drop-shadow(0 0 15px rgba(34, 197, 94, 0.9))'
+                      }}
+                    />
+                    <motion.circle
+                      animate={{
+                        scale: [1, 1.6, 1],
+                        opacity: [0.9, 0.1, 0.9]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity
+                      }}
+                      cx="450"
+                      cy="250"
+                      r="25"
+                      fill="none"
+                      stroke="rgba(34, 197, 94, 0.7)"
+                      strokeWidth="3"
+                    />
+                    <motion.text
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 1.5 }}
+                      x="450"
+                      y="258"
+                      textAnchor="middle"
+                      fill="white"
+                      fontSize="20"
+                      fontWeight="700"
+                      fontFamily="SF Pro Display, sans-serif"
+                    >
+                      AI
+                    </motion.text>
+                  </g>
+
+                  {/* Animated Connections - Input to Hidden 1 */}
+                  {[100, 200, 300, 400].map((y1, i) => 
+                    [120, 200, 280, 360].map((y2, j) => {
+                      const delay = 0.6 + (i * 0.05) + (j * 0.05);
+                      return (
+                        <motion.line
+                          key={`conn1-${i}-${j}`}
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          whileInView={{ pathLength: 1, opacity: 0.3 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay }}
+                          x1="100"
+                          y1={y1}
+                          x2="250"
+                          y2={y2}
+                          stroke="rgba(59, 130, 246, 0.4)"
+                          strokeWidth="1"
+                        />
+                      );
+                    })
+                  )}
+
+                  {/* Animated Connections - Hidden 1 to Hidden 2 */}
+                  {[120, 200, 280, 360].map((y1, i) => 
+                    [150, 250, 350].map((y2, j) => {
+                      const delay = 1 + (i * 0.05) + (j * 0.05);
+                      return (
+                        <motion.line
+                          key={`conn2-${i}-${j}`}
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          whileInView={{ pathLength: 1, opacity: 0.3 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay }}
+                          x1="250"
+                          y1={y1}
+                          x2="350"
+                          y2={y2}
+                          stroke="rgba(139, 92, 246, 0.4)"
+                          strokeWidth="1.5"
+                        />
+                      );
+                    })
+                  )}
+
+                  {/* Animated Connections - Hidden 2 to Output */}
+                  {[150, 250, 350].map((y, i) => {
+                    const delay = 1.4 + (i * 0.1);
+                    return (
+                      <motion.line
+                        key={`conn3-${i}`}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 0.4 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay }}
+                        x1="350"
+                        y1={y}
+                        x2="450"
+                        y2="250"
+                        stroke="rgba(236, 72, 153, 0.5)"
+                        strokeWidth="2"
+                      />
+                    );
+                  })}
+
+                  {/* Data Flow Animation - Pulsing dots along connections */}
+                  {[100, 200, 300, 400].slice(0, 2).map((y, i) => (
+                    <motion.circle
+                      key={`pulse-${i}`}
+                      animate={{
+                        cx: [100, 250, 350, 450],
+                        cy: [y, 200, 250, 250],
+                        opacity: [1, 0.8, 0.6, 0]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: i * 1.5,
+                        ease: "easeInOut"
+                      }}
+                      r="4"
+                      fill="rgba(59, 130, 246, 1)"
+                      style={{
+                        filter: 'drop-shadow(0 0 6px rgba(59, 130, 246, 1))'
+                      }}
+                    />
+                  ))}
                 </svg>
               </div>
+
+              {/* Glow effect overlay */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+                  filter: 'blur(60px)'
+                }}
+              />
             </div>
           </motion.div>
 

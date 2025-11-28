@@ -35,7 +35,7 @@ const BlogHeroSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full text-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full text-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

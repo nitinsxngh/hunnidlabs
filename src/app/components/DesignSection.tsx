@@ -93,164 +93,398 @@ const DesignSection: React.FC = () => {
               Design & Ideation: Crafting Exceptional Digital Experiences.
             </h2>
 
-            {/* Gradient Panel with Isometric Illustration */}
-            <div className="relative w-full h-[500px]">
-              {/* Gradient Panel Background */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="absolute inset-0 rounded-3xl p-8"
-                style={{
-                  background: 'linear-gradient(to top, rgba(139, 92, 246, 0.8) 0%, rgba(59, 130, 246, 0.6) 50%, rgba(147, 197, 253, 0.4) 100%)',
-                  boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
-                }}
-              >
-                {/* Isometric Illustration */}
-                <div className="relative w-full h-full">
-                  {/* Smartphone */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                    style={{
-                      transform: 'translate(-50%, -50%) perspective(1000px) rotateX(15deg) rotateY(-15deg)'
-                    }}
-                  >
-                    {/* Phone Body */}
-                    <div 
-                      className="relative w-32 h-56 rounded-2xl"
-                      style={{
-                        background: '#ffffff',
-                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
-                      }}
-                    >
-                      {/* Phone Screen Content */}
-                      <div className="p-3 h-full flex flex-col">
-                        {/* Search Bar */}
-                        <div className="h-6 bg-gray-200 rounded mb-2"></div>
-                        {/* Content Blocks */}
-                        <div className="flex-1 space-y-2">
-                          <div className="h-12 bg-gray-300 rounded"></div>
-                          <div className="h-8 bg-gray-200 rounded"></div>
-                          <div className="h-16 bg-gray-300 rounded"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Notifications */}
-                      <div className="absolute top-2 right-2 flex gap-1">
-                        <div className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center text-white text-xs">21</div>
-                        <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">15</div>
-                      </div>
-                    </div>
-                  </motion.div>
+            {/* Animated Design Canvas Visualization */}
+            <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+              {/* Background design grid */}
+              <div className="absolute inset-0 opacity-10">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="design-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                      <circle cx="15" cy="15" r="0.5" fill="rgba(139, 92, 246, 0.4)" />
+                      <line x1="15" y1="0" x2="15" y2="30" stroke="rgba(139, 92, 246, 0.2)" strokeWidth="0.5" />
+                      <line x1="0" y1="15" x2="30" y2="15" stroke="rgba(139, 92, 246, 0.2)" strokeWidth="0.5" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#design-grid)" />
+                </svg>
+              </div>
 
-                  {/* UI/UX Speech Bubble */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    className="absolute top-20 left-16"
-                  >
-                    <div 
-                      className="px-4 py-2 rounded-lg bg-white"
-                      style={{
-                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
-                      }}
-                    >
-                      <p className="text-black text-xs font-semibold">UI/UX</p>
-                    </div>
-                  </motion.div>
+              {/* Main Design Canvas SVG */}
+              <div className="relative z-10 w-full h-full max-w-lg">
+                <svg 
+                  className="w-full h-full" 
+                  viewBox="0 0 500 500" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* Design Canvas/Workspace */}
+                  <g>
+                    {/* Canvas background */}
+                    <motion.rect
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8 }}
+                      x="100"
+                      y="100"
+                      width="300"
+                      height="300"
+                      rx="20"
+                      fill="rgba(255, 255, 255, 0.05)"
+                      stroke="rgba(139, 92, 246, 0.4)"
+                      strokeWidth="2"
+                      strokeDasharray="5,5"
+                    />
 
-                  {/* Characters */}
-                  {/* Female Character (Left) */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="absolute bottom-24 left-8"
-                  >
-                    <div className="flex flex-col items-center">
-                      {/* Head */}
-                      <div className="w-8 h-8 bg-pink-300 rounded-full mb-1"></div>
-                      {/* Body */}
-                      <div className="w-10 h-12 bg-blue-500 rounded-t-lg"></div>
-                      {/* Legs */}
-                      <div className="w-10 h-6 bg-gray-800 rounded-b-lg"></div>
-                    </div>
-                  </motion.div>
+                    {/* Floating Design Elements - Shapes */}
+                    {[
+                      { type: 'circle', x: 150, y: 150, size: 40, color: 'rgba(139, 92, 246, 0.8)', delay: 0.3 },
+                      { type: 'rect', x: 220, y: 140, size: 50, color: 'rgba(59, 130, 246, 0.8)', delay: 0.5 },
+                      { type: 'circle', x: 300, y: 180, size: 35, color: 'rgba(236, 72, 153, 0.8)', delay: 0.7 },
+                      { type: 'rect', x: 180, y: 250, size: 45, color: 'rgba(34, 197, 94, 0.8)', delay: 0.9 }
+                    ].map((element, i) => (
+                      <g key={`element-${i}`}>
+                        {element.type === 'circle' ? (
+                          <motion.circle
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            animate={{
+                              y: [element.y, element.y - 10, element.y],
+                              opacity: [0.8, 1, 0.8]
+                            }}
+                            transition={{
+                              duration: 2.5,
+                              repeat: Infinity,
+                              delay: element.delay,
+                              ease: "easeInOut"
+                            }}
+                            cx={element.x}
+                            cy={element.y}
+                            r={element.size / 2}
+                            fill={element.color}
+                            style={{
+                              filter: `drop-shadow(0 0 15px ${element.color.replace('0.8', '0.6')})`
+                            }}
+                          />
+                        ) : (
+                          <motion.rect
+                            initial={{ opacity: 0, scale: 0, rotate: -45 }}
+                            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                            viewport={{ once: true }}
+                            animate={{
+                              y: [element.y, element.y - 10, element.y],
+                              rotate: [0, 5, 0],
+                              opacity: [0.8, 1, 0.8]
+                            }}
+                            transition={{
+                              duration: 2.5,
+                              repeat: Infinity,
+                              delay: element.delay,
+                              ease: "easeInOut"
+                            }}
+                            x={element.x - element.size / 2}
+                            y={element.y - element.size / 2}
+                            width={element.size}
+                            height={element.size}
+                            rx="8"
+                            fill={element.color}
+                            style={{
+                              filter: `drop-shadow(0 0 15px ${element.color.replace('0.8', '0.6')})`
+                            }}
+                          />
+                        )}
+                      </g>
+                    ))}
 
-                  {/* Male Character (Right) */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                    className="absolute bottom-24 right-8"
-                  >
-                    <div className="flex flex-col items-center">
-                      {/* Head */}
-                      <div className="w-8 h-8 bg-orange-300 rounded-full mb-1"></div>
-                      {/* Body */}
-                      <div className="w-10 h-12 bg-yellow-400 rounded-t-lg"></div>
-                      {/* Legs */}
-                      <div className="w-10 h-6 bg-white rounded-b-lg"></div>
-                    </div>
-                  </motion.div>
-
-                  {/* Lightbulb in Box */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    className="absolute bottom-12 left-12"
-                  >
-                    <div className="relative">
-                      {/* Box */}
-                      <div 
-                        className="w-12 h-10 bg-amber-800 rounded"
+                    {/* Typography Elements */}
+                    {[
+                      { text: 'A', x: 250, y: 200, size: 48, delay: 0.4 },
+                      { text: 'Aa', x: 320, y: 280, size: 32, delay: 0.6 },
+                      { text: 'Type', x: 140, y: 320, size: 24, delay: 0.8 }
+                    ].map((text, i) => (
+                      <motion.text
+                        key={`text-${i}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          y: [text.y, text.y - 8, text.y],
+                          opacity: [0.7, 1, 0.7]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: text.delay,
+                          ease: "easeInOut"
+                        }}
+                        x={text.x}
+                        y={text.y}
+                        fontSize={text.size}
+                        fontWeight="700"
+                        fill="rgba(255, 255, 255, 0.9)"
+                        fontFamily="SF Pro Display, sans-serif"
                         style={{
-                          transform: 'perspective(500px) rotateX(30deg) rotateY(-20deg)',
-                          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+                          filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.6))'
                         }}
                       >
-                        {/* Lightbulb Glow */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-2xl">💡</div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+                        {text.text}
+                      </motion.text>
+                    ))}
 
-                  {/* Gear Icons */}
-                  {[0, 1].map((i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, rotate: -180 }}
-                      whileInView={{ opacity: 1, rotate: 0 }}
+                    {/* Color Palette */}
+                    {[
+                      { x: 120, y: 120, color: '#8b5cf6', delay: 0.2 },
+                      { x: 150, y: 120, color: '#3b82f6', delay: 0.3 },
+                      { x: 180, y: 120, color: '#ec4899', delay: 0.4 },
+                      { x: 210, y: 120, color: '#22c55e', delay: 0.5 }
+                    ].map((swatch, i) => (
+                      <motion.circle
+                        key={`swatch-${i}`}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          scale: [1, 1.2, 1],
+                          opacity: [0.8, 1, 0.8]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: swatch.delay
+                        }}
+                        cx={swatch.x}
+                        cy={swatch.y}
+                        r="12"
+                        fill={swatch.color}
+                        stroke="rgba(255, 255, 255, 0.3)"
+                        strokeWidth="2"
+                        style={{
+                          filter: `drop-shadow(0 0 10px ${swatch.color})`
+                        }}
+                      />
+                    ))}
+
+                    {/* Design Tools Icons - Floating */}
+                    {[
+                      { icon: '✏️', x: 350, y: 150, delay: 0.3 },
+                      { icon: '🎨', x: 360, y: 220, delay: 0.5 },
+                      { icon: '📐', x: 350, y: 290, delay: 0.7 },
+                      { icon: '🖌️', x: 360, y: 360, delay: 0.9 }
+                    ].map((tool, i) => (
+                      <motion.text
+                        key={`tool-${i}`}
+                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          y: [tool.y, tool.y - 15, tool.y],
+                          rotate: [0, 10, 0],
+                          opacity: [0.7, 1, 0.7]
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          delay: tool.delay,
+                          ease: "easeInOut"
+                        }}
+                        x={tool.x}
+                        y={tool.y}
+                        fontSize="32"
+                        style={{
+                          filter: 'drop-shadow(0 0 15px rgba(139, 92, 246, 0.6))'
+                        }}
+                      >
+                        {tool.icon}
+                      </motion.text>
+                    ))}
+
+                    {/* Connection Lines - Design Flow */}
+                    {[
+                      { from: { x: 150, y: 150 }, to: { x: 220, y: 140 } },
+                      { from: { x: 220, y: 140 }, to: { x: 300, y: 180 } },
+                      { from: { x: 300, y: 180 }, to: { x: 180, y: 250 } }
+                    ].map((conn, i) => (
+                      <motion.line
+                        key={`conn-${i}`}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 0.3 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          opacity: [0.3, 0.6, 0.3]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: 1 + i * 0.2
+                        }}
+                        x1={conn.from.x}
+                        y1={conn.from.y}
+                        x2={conn.to.x}
+                        y2={conn.to.y}
+                        stroke="rgba(139, 92, 246, 0.5)"
+                        strokeWidth="2"
+                        strokeDasharray="5,5"
+                      />
+                    ))}
+
+                    {/* Lightbulb - Ideation */}
+                    <motion.g
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.9 + i * 0.1 }}
-                      className="absolute"
-                      style={{
-                        bottom: '8px',
-                        left: `${40 + i * 20}%`
-                      }}
+                      transition={{ duration: 0.6, delay: 1 }}
                     >
-                      <div className="w-8 h-8 bg-blue-400 rounded flex items-center justify-center">
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97c0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.4-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1c0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z"/>
-                        </svg>
-                      </div>
-                    </motion.div>
+                      <motion.circle
+                        animate={{
+                          opacity: [0.6, 1, 0.6],
+                          scale: [1, 1.1, 1]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity
+                        }}
+                        cx="250"
+                        cy="250"
+                        r="30"
+                        fill="rgba(234, 179, 8, 0.3)"
+                        stroke="rgba(234, 179, 8, 0.8)"
+                        strokeWidth="2"
+                        style={{
+                          filter: 'drop-shadow(0 0 20px rgba(234, 179, 8, 0.6))'
+                        }}
+                      />
+                      <motion.text
+                        x="250"
+                        y="260"
+                        textAnchor="middle"
+                        fontSize="40"
+                        style={{
+                          filter: 'drop-shadow(0 0 10px rgba(234, 179, 8, 0.8))'
+                        }}
+                      >
+                        💡
+                      </motion.text>
+                    </motion.g>
+
+                    {/* Design Process Flow - Arrows */}
+                    {[0, 1, 2].map((i) => (
+                      <motion.path
+                        key={`arrow-${i}`}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 0.4 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          pathLength: [1, 1.2, 1],
+                          opacity: [0.4, 0.7, 0.4]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: 1.2 + i * 0.3
+                        }}
+                        d={`M ${200 + i * 30} ${350} L ${220 + i * 30} ${350}`}
+                        stroke="rgba(139, 92, 246, 0.6)"
+                        strokeWidth="3"
+                        fill="none"
+                        markerEnd="url(#arrowhead)"
+                      />
+                    ))}
+
+                    {/* Arrow marker definition */}
+                    <defs>
+                      <marker
+                        id="arrowhead"
+                        markerWidth="10"
+                        markerHeight="10"
+                        refX="9"
+                        refY="3"
+                        orient="auto"
+                      >
+                        <polygon
+                          points="0 0, 10 3, 0 6"
+                          fill="rgba(139, 92, 246, 0.6)"
+                        />
+                      </marker>
+                    </defs>
+                  </g>
+
+                  {/* Floating Design Metrics */}
+                  {[
+                    { label: 'Creativity', value: '100%', x: 80, y: 200, delay: 0.4 },
+                    { label: 'Innovation', value: '∞', x: 420, y: 200, delay: 0.6 },
+                    { label: 'Quality', value: '99%', x: 250, y: 420, delay: 0.8 }
+                  ].map((metric, i) => (
+                    <g key={`metric-${i}`}>
+                      <motion.rect
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        animate={{
+                          y: [metric.y, metric.y - 10, metric.y],
+                          opacity: [0.8, 1, 0.8]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: metric.delay,
+                          ease: "easeInOut"
+                        }}
+                        x={metric.x - 40}
+                        y={metric.y - 20}
+                        width="80"
+                        height="40"
+                        rx="10"
+                        fill="rgba(139, 92, 246, 0.15)"
+                        stroke="rgba(139, 92, 246, 0.4)"
+                        strokeWidth="2"
+                        style={{
+                          filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))'
+                        }}
+                      />
+                      <motion.text
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: metric.delay + 0.2 }}
+                        x={metric.x}
+                        y={metric.y - 8}
+                        textAnchor="middle"
+                        fill="rgba(139, 92, 246, 1)"
+                        fontSize="12"
+                        fontWeight="600"
+                        fontFamily="SF Pro Display, sans-serif"
+                      >
+                        {metric.label}
+                      </motion.text>
+                      <motion.text
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: metric.delay + 0.3 }}
+                        x={metric.x}
+                        y={metric.y + 8}
+                        textAnchor="middle"
+                        fill="white"
+                        fontSize="16"
+                        fontWeight="700"
+                        fontFamily="SF Pro Display, sans-serif"
+                      >
+                        {metric.value}
+                      </motion.text>
+                    </g>
                   ))}
-                </div>
-              </motion.div>
+                </svg>
+              </div>
+
+              {/* Glow effect overlay */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%)',
+                  filter: 'blur(60px)'
+                }}
+              />
             </div>
           </motion.div>
 

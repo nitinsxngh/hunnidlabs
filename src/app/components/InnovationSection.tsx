@@ -133,10 +133,11 @@ const InnovationSection: React.FC = () => {
           viewport={{ once: true }}
           className="relative"
         >
-          {/* Connecting Line */}
+          {/* Connecting Line - positioned to intersect through center of icons */}
           <div 
-            className="absolute top-24 left-0 right-0 h-px hidden lg:block"
+            className="absolute left-0 right-0 h-px hidden lg:block"
             style={{
+              top: '48px', // Center of 96px (w-24 h-24) icons
               background: 'linear-gradient(to right, transparent 10%, rgba(139, 92, 246, 0.5) 20%, rgba(139, 92, 246, 0.5) 80%, transparent 90%)',
               boxShadow: '0 0 10px rgba(139, 92, 246, 0.3)'
             }}

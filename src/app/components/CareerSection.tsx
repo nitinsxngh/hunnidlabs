@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const CareerSection: React.FC = () => {
   return (
@@ -92,7 +93,7 @@ const CareerSection: React.FC = () => {
             </motion.button>
           </motion.div>
 
-          {/* Right Section - Abstract W Graphic */}
+          {/* Right Section - Hunnid Logo */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -100,86 +101,13 @@ const CareerSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative h-[600px] lg:h-[700px] flex items-center justify-center"
           >
-            {/* Abstract W/Arch Graphic */}
-            <div className="relative w-full h-full">
-              <svg 
-                className="w-full h-full" 
-                viewBox="0 0 600 700" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                {/* First W/Arch Shape */}
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.9 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.5 }}
-                  d="M 100 200 Q 150 100 200 200 Q 250 300 300 200 Q 350 100 400 200 Q 450 300 500 200"
-                  stroke="rgba(255, 255, 255, 0.9)"
-                  strokeWidth="12"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-
-                {/* Second Overlapping W/Arch Shape */}
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.9 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.7 }}
-                  d="M 120 220 Q 170 120 220 220 Q 270 320 320 220 Q 370 120 420 220 Q 470 320 520 220"
-                  stroke="rgba(255, 255, 255, 0.7)"
-                  strokeWidth="10"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-
-                {/* Filled overlapping shapes for depth */}
-                <motion.path
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.3 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 1 }}
-                  d="M 100 200 Q 150 100 200 200 Q 250 300 300 200 Q 350 100 400 200 Q 450 300 500 200 L 500 400 Q 450 500 400 400 Q 350 500 300 400 Q 250 500 200 400 Q 150 500 100 400 Z"
-                  fill="rgba(255, 255, 255, 0.2)"
-                />
-
-                {/* Additional accent lines */}
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.6 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, delay: 1.2 }}
-                  d="M 150 250 Q 300 150 450 250"
-                  stroke="rgba(255, 255, 255, 0.5)"
-                  strokeWidth="6"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-
-                <motion.path
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 0.6 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, delay: 1.4 }}
-                  d="M 150 350 Q 300 450 450 350"
-                  stroke="rgba(255, 255, 255, 0.5)"
-                  strokeWidth="6"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-              </svg>
-
-              {/* Subtle glow effect */}
-              <div 
-                className="absolute inset-0"
-                style={{
-                  background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%)',
-                  filter: 'blur(40px)'
-                }}
+            <div className="relative w-full h-full max-w-md max-h-[500px] mx-auto">
+              <Image
+                src="/components/hunnid-logo-transparent.png"
+                alt="Hunnid Labs Logo"
+                fill
+                className="object-contain"
+                priority
               />
             </div>
           </motion.div>
