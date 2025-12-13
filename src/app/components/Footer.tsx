@@ -39,17 +39,17 @@ const Footer = () => {
     {
       country: 'UAE',
       image: '/location/uae.png',
-      address: 'Iconic Tower, A 13, Block A, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309'
+      address: 'Dubai International Financial Centre, Level 15, Gate Village 5, Dubai, UAE'
     },
     {
       country: 'USA',
       image: '/location/usa.png',
-      address: 'Iconic Tower, A 13, Block A, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309'
+      address: 'One Market Plaza, Suite 200, San Francisco, CA 94105, United States'
     },
     {
       country: 'Australia',
       image: '/location/australia.png',
-      address: 'Iconic Tower, A 13, Block A, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309'
+      address: 'Level 25, 123 Collins Street, Melbourne, VIC 3000, Australia'
     }
   ];
 

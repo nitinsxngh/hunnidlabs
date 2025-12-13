@@ -11,6 +11,7 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
+    { href: '/', label: 'Home' },
     { href: '/expertise', label: 'Expertise' },
     { href: '/work', label: 'Work' },
     { href: '/company', label: 'Company' },
