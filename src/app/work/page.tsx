@@ -13,12 +13,12 @@ export default function WorkPage() {
       <Header />
       <SuccessStorySection />
       
-      {/* Project 1: Safe Gold - Content Left, Image Right */}
+      {/* Project 1: ILC  - Content Left, Image Right */}
       <ProjectDetailLeft
-        projectName="Safe Gold"
-        projectNameHighlight="Gold"
-        description="Safe gold is the indias largest digital platform for buying, selling and managing digital gold offering, transplant and convient solutions for modern gold investment"
-        categories={['Fintech platform', 'Digital Gold', 'Digital Gold']}
+        projectName="ILC Blockchain Resume"
+        projectNameHighlight="Resume"
+        description="A decentralized resume builder that lets users create, verify, and own their professional credentials on the blockchain. Powered by the ILC Network, it ensures immutable records, instant employer verification, and privacy-preserving data control using smart contracts, IPFS, and advanced cryptography. Secure, verifiable, and truly user-owned professional identities."
+        categories={['Resume', 'Blockchain', 'Digital']}
         ctaText="Get a Full Rundown"
       />
 
