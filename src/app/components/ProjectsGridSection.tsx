@@ -12,10 +12,6 @@ interface ProjectCard {
 const ProjectsGridSection: React.FC = () => {
   const projects: ProjectCard[] = [
     {
-      title: 'Safe Gold',
-      description: 'Safe gold is the indias largest digital platform for buying, selling and managing digital gold offering, transplant and convient solutions for modern gold investment'
-    },
-    {
       title: 'TechFlow',
       description: 'TechFlow revolutionizes workflow automation with AI-powered solutions that streamline business processes, enhance productivity, and drive digital transformation across enterprises.'
     },
@@ -26,10 +22,6 @@ const ProjectsGridSection: React.FC = () => {
     {
       title: 'DataViz Pro',
       description: 'DataViz Pro transforms complex data into actionable insights through advanced analytics and visualization tools, empowering decision-makers with real-time business intelligence.'
-    },
-    {
-      title: 'Safe Gold',
-      description: 'Safe gold is the indias largest digital platform for buying, selling and managing digital gold offering, transplant and convient solutions for modern gold investment'
     },
     {
       title: 'TechFlow',
